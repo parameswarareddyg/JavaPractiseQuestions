@@ -1,4 +1,6 @@
 //blueprint
+package com.java.day3;
+
 class Calculator
 {
   public static int value = 10;//static variable//10->20->30
@@ -9,7 +11,7 @@ class Calculator
   {
     return a+b;
   }
-  int sub(int a,int b)
+  int static sub(int a,int b)
   {
     return a-b;
   }

@@ -1,0 +1,49 @@
+Name -> Mukhaddar Shaik
+Address ->Dudyala,Atmakur, Nadyal District
+age -> 29
+height -> 5.8
+date -> 21-08-1996
+married/unmarried - yes/no
+mobilenumber
+
+Numbers -> 1,20,100,10000000
+	->byte -> -127 to 128
+	->short -> -32,768 to 32,767
+	->int -> -2^31 to 2^31 - 1
+	->long -> -2^63 to 2^63 - 1
+Real Numbers
+	->float
+	->double
+Strings
+	->Char -> single letter
+	->String -> group of letters or sentence  or character
+Boolean
+	->Boolean->True/False
+
+age.....29..
+
+protected byte age = 29;
+float height = 5.8;
+String name = Mukhaddar Shaik;
+boolean marriagestatus = false;
+
+
+
+computer memory
+age mobilenumber  name				height  married/unmarried
+29  7842181445   Mukhaddar Shaik      5.8   false
+0x1  0x2        	0x3   			0x4 	0x5
+
+
+java -> HumanReadable Langauge
+--->compiler
+-->Class file --> Byte code
+-->Assembly  -> Ex add a,b
+-->machine Language -> 1010 
+
+		8 4 2 1
+10 ->   1 0 1 
+
+64 32 16 8 4 2 1
+1  0  0  0 0 0 1
+
