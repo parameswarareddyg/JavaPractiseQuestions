@@ -1,8 +1,11 @@
-package com.java.decisions;
+package com.java.day8;
 
 import java.util.Scanner;
-public class OnlineTest {
 
+//== ->address
+//.equal() or .equalIgnoreCase(); -> value comparison
+
+public class NestedIfStatement {
 	public static void main(String[] args) {
 		String resultType;
 		String resultFirstRound,resultSecondRound;
@@ -15,11 +18,11 @@ public class OnlineTest {
 		{
 			System.out.println("Enter Result of First Round (P | F)?");
 			resultFirstRound = sc.nextLine();
-			if(resultFirstRound == "P")
+			if(resultFirstRound.equalsIgnoreCase("P"))
 			{
 				System.out.println("Enter Result of Second Round (P | F)?");
 				resultSecondRound = sc.nextLine();
-				if(resultSecondRound == "P")
+				if(resultSecondRound.equalsIgnoreCase("P"))
 				{
 					System.out.println("You can wait for HR Round");
 				}else
@@ -36,7 +39,5 @@ public class OnlineTest {
 		}
 		sc.close();
 
-
 	}
-
 }
