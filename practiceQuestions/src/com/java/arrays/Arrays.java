@@ -17,7 +17,7 @@ public class Arrays {
 //		  System.out.println("-------------");
 //		  Object [] obj = new Object[]{2,"Tinku","36.6"};
 //		 
-//		  for (Object v : obj) { System.out.println(v); }
+//		  for (Object v : obj) {  System.out.println(v); }
 		
 
 //		// Arrays a = "TEST";
@@ -49,7 +49,6 @@ public class Arrays {
 //
 //		System.out.println("---------------");
 //		int[][] j = new int[][] { { 3, 4 }, { 4, 5, 5, 78 }, { 6, 8, 9 }
-//
 //		};
 //
 //		for (int k = 0; k < j.length; k++) {
