@@ -11,7 +11,7 @@ class Calculator
   {
     return a+b;
   }
-  int static sub(int a,int b)
+  static int sub(int a,int b)
   {
     return a-b;
   }
