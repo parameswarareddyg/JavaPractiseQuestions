@@ -9,7 +9,7 @@ public class FinalVariable {
 		int c = 20;
 		System.out.println("Local Variabe value : "+c);
 		FinalVariable obj = new FinalVariable();
-		FinalVariable obj1 = new FinalVariable();
+//		FinalVariable obj1 = new FinalVariable();
 		//obj.a =20;
 		//obj1.a=20;
 		//b=20;
