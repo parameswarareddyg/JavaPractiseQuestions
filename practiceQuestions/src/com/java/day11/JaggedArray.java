@@ -17,30 +17,20 @@ public class JaggedArray {
 		System.out.println("***********************Array Ended ****************************");
 	}
 	
-	public byte[][] readStudentDetails()
-	{
-		
-		Scanner sc = new Scanner(System.in);
-		byte rows=0;
-		byte  columns=0;
-		System.out.println("Enter How Many Student Details need to Add");
-		rows= sc.nextByte();
-		byte [][] studentMarksArray = new byte[rows][];//Jagged Array
-		for(int i=0;i<studentMarksArray.length;i++)
-		{
-			System.out.println("Enter How Many Subject Marks need to store for Student"+i);
-			columns = sc.nextByte();
-			studentMarksArray[i] = new byte[columns];
-			
-			for(int j=0;j<studentMarksArray[i].length;j++)
-			{
-				System.out.println("Enter Subject "+j+" Marks");
-				studentMarksArray[i][j] = sc.nextByte();
-			}
-		}
-		sc.close();
-		return studentMarksArray;
-	}
+	
+	  public byte[][] readStudentDetails() {
+	  
+	  Scanner sc = new Scanner(System.in); byte rows=0; byte columns=0;
+	  System.out.println("Enter How Many Student Details need to Add"); rows=
+	  sc.nextByte(); byte [][] studentMarksArray = new byte[rows][];//Jagged Array
+	  for(int i=0;i<studentMarksArray.length;i++) {
+	  System.out.println("Enter How Many Subject Marks need to store for Student"+i
+	  ); columns = sc.nextByte(); studentMarksArray[i] = new byte[columns];
+	  
+	  for(int j=0;j<studentMarksArray[i].length;j++) {
+	  System.out.println("Enter Subject "+j+" Marks"); studentMarksArray[i][j] =
+	  sc.nextByte(); } } sc.close(); return studentMarksArray; }
+	 
 	public static void main(String[] args) {
 		
 		byte [][] studentDetailsArray = new byte[3][]; //array row size declaration

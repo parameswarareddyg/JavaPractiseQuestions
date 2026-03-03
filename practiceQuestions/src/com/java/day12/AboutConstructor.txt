@@ -1,0 +1,94 @@
+This example shows:
+
+✅ Default constructor
+
+✅ Parameterized constructor
+
+✅ Constructor overloading
+
+✅ Object creation
+
+✅ Use of this keyword
+
+🚗 Car Class Example
+class Car {
+
+    String brand;
+    String model;
+    int year;
+    double price;
+
+    // 1️⃣ Default Constructor
+    Car() {
+        brand = "Unknown";
+        model = "Not Specified";
+        year = 0;
+        price = 0.0;
+    }
+
+    // 2️⃣ Parameterized Constructor
+    Car(String brand, String model, int year, double price) {
+        this.brand = brand;
+        this.model = model;
+        this.year = year;
+        this.price = price;
+    }
+
+    // Method to display car details
+    void displayDetails() {
+        System.out.println("Brand: " + brand);
+        System.out.println("Model: " + model);
+        System.out.println("Year: " + year);
+        System.out.println("Price: $" + price);
+        System.out.println("------------------------");
+    }
+}
+🏁 Creating Objects Using Constructors
+public class Main {
+    public static void main(String[] args) {
+
+        // Using Default Constructor
+        Car car1 = new Car();
+
+        // Using Parameterized Constructor
+        Car car2 = new Car("Toyota", "Camry", 2023, 25000);
+        Car car3 = new Car("BMW", "X5", 2024, 60000);
+
+        // Display Details
+        car1.displayDetails();
+        car2.displayDetails();
+        car3.displayDetails();
+    }
+}
+🔎 What This Example Shows
+✅ 1. Constructor initializes object data
+When object is created:
+
+Car car2 = new Car("Toyota", "Camry", 2023, 25000);
+The constructor automatically assigns values.
+
+✅ 2. this keyword
+Used to differentiate:
+
+this.brand = brand;
+Left side → instance variable
+Right side → constructor parameter
+
+✅ 3. Constructor Overloading
+Same constructor name (Car)
+Different parameter lists
+
+💡 Real-World Meaning
+Think of a constructor like:
+
+🚗 "Car factory setup instructions"
+When you create a car object, the constructor ensures it is built with proper details.
+
+🎯 Why Constructors Are Important
+Initialize object state
+
+Ensure required data is provided
+
+Avoid uninitialized objects
+
+Improve code safety

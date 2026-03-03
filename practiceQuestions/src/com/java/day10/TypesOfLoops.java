@@ -1,7 +1,5 @@
 package com.java.day10;
 
-import java.awt.DisplayMode;
-
 public class TypesOfLoops {
 
 	public static void main(String[] args) {

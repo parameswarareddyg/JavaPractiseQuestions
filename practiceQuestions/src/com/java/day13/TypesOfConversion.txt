@@ -1,0 +1,216 @@
+🔄 Type Conversion in Java
+
+Type conversion in Java means converting one data type into another data type.
+
+In Java, there are two main types of type conversion:
+
+1️⃣ Implicit Type Conversion (Widening Casting)
+
+Also called Automatic Type Conversion.
+
+👉 Done automatically by Java
+👉 Converts smaller data type to larger data type
+👉 No data loss
+
+🔹 Order of Widening
+byte → short → int → long → float → double
+✅ Example:
+public class Test {
+    public static void main(String[] args) {
+        int num = 10;
+        double d = num;  // int automatically converted to double
+        System.out.println(d);
+    }
+}
+
+✔ Here int is converted to double automatically.
+
+2️⃣ Explicit Type Conversion (Narrowing Casting)
+
+👉 Done manually by programmer
+👉 Converts larger data type to smaller data type
+👉 May cause data loss
+👉 Requires casting operator (type)
+
+✅ Example:
+public class Test {
+    public static void main(String[] args) {
+        double d = 10.75;
+        int num = (int) d;  // explicit casting
+        System.out.println(num);
+    }
+}
+
+✔ Output will be: 10
+⚠ Decimal part is lost (data loss)
+
+3️⃣ Type Conversion Between Non-Primitive Types
+
+Example: Converting String to int
+
+public class Test {
+    public static void main(String[] args) {
+        String s = "100";
+        int num = Integer.parseInt(s);
+        System.out.println(num);
+    }
+}
+
+Here:
+
+parseInt() converts String to int
+
+Used commonly when taking user input
+
+🎯 Summary Table
+Type	Also Called	Done By	Data Loss
+Widening	Implicit	Java automatically	❌ No
+Narrowing	Explicit	Programmer	⚠ Yes
+🔥 Simple Real-Life Example
+
+Think of:
+
+Pouring water from small glass → big bucket ✅ (Widening)
+
+Pouring water from big bucket → small glass ⚠ (Narrowing, overflow possible)
+
+If you want, I can also explain:
+
+Type promotion in expressions
+
+Wrapper class conversions
+
+Type casting with objects
+
+Best interview examples
+
+Just tell me 😊
+
+Explain in detail about implicitConstructor
+Implicit Constructor in Java
+🔹 What is an Implicit Constructor?
+
+An Implicit Constructor is a constructor that is automatically created by the Java compiler when:
+
+✅ You do NOT write any constructor in your class.
+
+It is also commonly called the Default Constructor (compiler-provided).
+
+🔹 Why does Java create it?
+
+Because every object creation using new must call a constructor.
+
+If you don’t write one, Java provides a constructor automatically so that object creation does not fail.
+
+🔹 How does the Implicit Constructor Look?
+
+If you write:
+
+class Car {
+    String model;
+}
+
+Java automatically creates this behind the scenes:
+
+class Car {
+    String model;
+
+    Car() {   // implicit constructor
+        super();  // calls Object class constructor
+    }
+}
+
+✔ It has:
+
+Same name as class
+
+No parameters
+
+No body logic (empty)
+
+Calls super() internally
+
+Same access modifier as the class
+
+🔹 Access Modifier of Implicit Constructor
+
+👉 It will have the same access modifier as the class.
+
+Example:
+
+public class Car {
+}
+
+Implicit constructor becomes:
+
+public Car() { }
+
+If class is default (no modifier):
+
+class Car {
+}
+
+Constructor also becomes default (package-private).
+
+🔹 Important Rule ⚠
+
+If you write any constructor, Java will NOT create an implicit constructor.
+
+Example:
+
+class Car {
+    Car(String model) {
+        System.out.println(model);
+    }
+}
+
+Now this will cause error:
+
+Car c = new Car();  // ❌ Compile-time error
+
+Because no no-argument constructor exists.
+
+🔹 Implicit vs Explicit Default Constructor
+Feature	Implicit Constructor	Explicit Default Constructor
+Created By	Java Compiler	Programmer
+Parameters	No arguments	No arguments
+Body	Empty	Can contain logic
+super() call	Automatically added	Must be written or added automatically
+🔹 Real Example with Output
+class Student {
+    int id;
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Student s = new Student();
+        System.out.println(s.id);
+    }
+}
+Output:
+0
+
+✔ Constructor is called
+✔ Default values assigned to variables
+
+🔥 Key Points for Interviews
+
+Implicit constructor is created only if no constructor exists.
+
+It is always no-argument.
+
+It calls super() internally.
+
+It has same access level as class.
+
+Once you define any constructor, compiler stops creating it.
+
+If you want, I can next explain:
+
+Difference between Implicit Constructor and User-defined Constructor
+
+How constructor chaining works
+
+What happens internally in memory when object is created
+
+Tell me which one you want 👍
