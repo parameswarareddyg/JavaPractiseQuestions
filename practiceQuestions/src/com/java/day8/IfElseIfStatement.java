@@ -15,9 +15,31 @@ public class IfElseIfStatement {
 
 		int inputnumber = 0;
 		
-		System.out.println("Enter a Number ");
+//		System.out.println("Enter a Number ");
 		Scanner sc = new Scanner(System.in);
-		inputnumber = sc.nextInt();
+//		if(sc.hasNextInt())
+//		{
+//			inputnumber = sc.nextInt();
+//		}
+//		else
+//		{
+//			System.out.println("Invalid Input");
+//		}
+		System.out.println("Enter a Number ");
+		while(true)
+		{	
+			if(sc.hasNextInt())
+			{
+				inputnumber = sc.nextInt();
+				break;
+			}
+			else
+			{
+				System.out.println("Invalid Input");
+				System.out.println("Enter a Correct Number Again ");
+				sc.next();
+			}
+		}
 		if(inputnumber > 0)
 		{
 			System.out.println("Positive Number");

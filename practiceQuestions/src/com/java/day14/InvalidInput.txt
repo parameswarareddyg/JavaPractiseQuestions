@@ -1,0 +1,140 @@
+How to handle fail safe condition for scanner if user give input wrong data value instead of expecting in java?
+
+Handling fail-safe input using Scanner in Java is very important to avoid runtime crashes like:
+
+InputMismatchException
+
+This happens when the user enters a wrong data type (e.g., entering "abc" when program expects an int).
+
+Let’s understand how to handle it safely.
+
+✅ 1️⃣ Problem Example (Without Fail-Safe)
+import java.util.Scanner;
+
+public class Test {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter your age: ");
+        int age = sc.nextInt();   // ❌ If user types "abc" → Program crashes
+
+        System.out.println("Age is: " + age);
+    }
+}
+
+If user enters "abc" →
+❌ Program throws InputMismatchException
+
+✅ 2️⃣ Method 1: Using hasNextInt() (Best Practice)
+
+This checks input before reading.
+
+import java.util.Scanner;
+
+public class Test {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter your age: ");
+
+        if (sc.hasNextInt()) {
+            int age = sc.nextInt();
+            System.out.println("Age is: " + age);
+        } else {
+            System.out.println("Invalid input! Please enter a valid number.");
+        }
+
+        sc.close();
+    }
+}
+🔹 Why this is fail-safe?
+
+It verifies the type before reading.
+
+Program does not crash.
+
+✅ 3️⃣ Method 2: Using try-catch (Recommended for Interviews)
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class Test {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        try {
+            System.out.print("Enter your age: ");
+            int age = sc.nextInt();
+            System.out.println("Age is: " + age);
+        } catch (InputMismatchException e) {
+            System.out.println("Invalid input! Please enter numbers only.");
+        }
+
+        sc.close();
+    }
+}
+🔹 Why this works?
+
+If wrong data type is entered → Exception is caught.
+
+Program continues safely.
+
+✅ 4️⃣ Method 3: Best Real-Time Fail-Safe (Loop Until Correct Input)
+
+This is most practical in real applications.
+
+import java.util.Scanner;
+
+public class Test {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int age = 0;
+
+        while (true) {
+            System.out.print("Enter your age: ");
+
+            if (sc.hasNextInt()) {
+                age = sc.nextInt();
+                break;   // Exit loop if valid
+            } else {
+                System.out.println("Invalid input! Please enter a valid number.");
+                sc.next(); // Clear wrong input
+            }
+        }
+
+        System.out.println("Age is: " + age);
+        sc.close();
+    }
+}
+🔥 Why this is BEST?
+
+Prevents crash
+
+Forces user to enter correct input
+
+Clears wrong buffer using sc.next()
+
+✅ 5️⃣ Handling Wrong Range (Extra Validation)
+
+If you also want to check logical validation:
+
+if (age <= 0 || age > 120) {
+    System.out.println("Enter a valid age between 1 and 120.");
+}
+
+You can combine both type validation + range validation.
+
+🎯 Interview Points to Say
+
+If interviewer asks: "How do you handle invalid input in Scanner?"
+
+You can say:
+
+Use hasNextInt() to validate before reading.
+
+Use try-catch to handle InputMismatchException.
+
+Use loop for continuous validation.
+
+Clear buffer using next() when invalid.
+
+Perform business validation (range checking).
