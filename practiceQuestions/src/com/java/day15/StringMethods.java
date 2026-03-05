@@ -10,7 +10,7 @@ public class StringMethods {
 		String s2 = "    Hello World      ";
 		String s3 = "";
 		String s4=" ";
-		
+		 
 		System.out.println(s.startsWith("h"));//false
 		System.out.println(s.endsWith("H"));//false
 		System.out.println(s.contains("el"));//true
