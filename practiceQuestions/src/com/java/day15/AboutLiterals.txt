@@ -1,0 +1,191 @@
+In Java Programming Language, literals are fixed values written directly in the source code. They represent constant values that do not change during program execution.
+
+Simply put:
+👉 Literal = actual value assigned to a variable
+
+Example:
+
+int a = 10;
+
+Here:
+
+a → variable
+
+10 → literal (actual value)
+
+Types of Literals in Java
+1️⃣ Integer Literals
+
+Whole numbers without decimal points.
+
+Example:
+
+int a = 10;
+int b = 200;
+int c = -50;
+
+Different formats:
+
+int decimal = 25;   // Decimal
+int binary = 0b1010; // Binary
+int octal = 034;     // Octal
+int hex = 0x1A;      // Hexadecimal
+2️⃣ Floating Point Literals
+
+Numbers with decimal points.
+
+Example:
+
+float a = 10.5f;
+double b = 20.99;
+
+Important:
+
+float literals must end with f or F
+
+Example:
+
+float x = 5.5f;
+3️⃣ Character Literals
+
+Single characters enclosed in single quotes.
+
+Example:
+
+char grade = 'A';
+char symbol = '#';
+char number = '5';
+4️⃣ String Literals
+
+Sequence of characters enclosed in double quotes.
+
+Example:
+
+String name = "Java";
+String city = "Hyderabad";
+
+Note: String literals are stored in the String Pool.
+
+5️⃣ Boolean Literals
+
+Represents true or false values.
+
+Example:
+
+boolean isJavaEasy = true;
+boolean isCompleted = false;
+6️⃣ Null Literal
+
+Represents no object reference.
+
+Example:
+
+String name = null;
+
+Here name does not refer to any object.
+
+Simple Real-Time Example
+public class Student {
+    public static void main(String[] args) {
+
+        int age = 22;          // Integer literal
+        double marks = 85.5;   // Floating literal
+        char grade = 'A';      // Character literal
+        String name = "Ravi";  // String literal
+        boolean pass = true;   // Boolean literal
+
+        System.out.println(name + " " + age);
+    }
+}
+Quick Interview Definition
+
+Literal:
+
+A literal is a fixed constant value assigned to a variable directly in the source code.
+
+Example:
+
+int x = 100;
+
+Here 100 is a literal.
+
+✅ If you want, I can also explain String Literal vs String Object (very important interview question) which is related to the String Pool concept you asked earlier.
+
+how to change literals
+
+In Java Programming Language, literals themselves cannot be changed because they are fixed constant values written directly in code.
+However, you can change the value stored in a variable by assigning a new literal.
+
+1️⃣ You Cannot Change a Literal Directly
+
+Example:
+
+int a = 10;
+
+Here:
+
+10 → literal
+
+It is just a value written in the program.
+
+You cannot modify 10 itself. Instead, you change the variable value.
+
+2️⃣ Change by Reassigning Another Literal
+
+Example:
+
+int a = 10;
+a = 20;   // new literal assigned
+
+Output concept:
+
+Initially a = 10
+
+After reassignment a = 20
+
+Here 10 is not modified; 20 is assigned as a new literal.
+
+3️⃣ Example with String Literal
+String name = "Java";
+name = "Python";
+
+Explanation:
+
+"Java" → literal
+
+"Python" → new literal assigned
+
+The variable reference changes to a new value.
+
+4️⃣ Real-Time Example
+public class LiteralExample {
+    public static void main(String[] args) {
+
+        int price = 100;
+        System.out.println(price);
+
+        price = 150;   // changing value using new literal
+        System.out.println(price);
+
+    }
+}
+
+Output:
+
+100
+150
+5️⃣ Important Interview Point
+
+Literal values cannot be changed.
+Only variables referencing those literals can be reassigned with new literals.
+
+Example:
+
+int x = 5;
+x = 8;
+
+✅ Simple Rule:
+
+Literal → fixed value
+
+Variable → can change by assigning another literal

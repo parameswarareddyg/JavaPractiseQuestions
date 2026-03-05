@@ -1,4 +1,4 @@
-package com.java.strings;
+package com.java.day15;
 
 public class StringMethods {
 

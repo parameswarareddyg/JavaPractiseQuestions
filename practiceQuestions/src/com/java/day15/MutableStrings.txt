@@ -1,0 +1,189 @@
+How String will be mutable using stringbuffer and String builder
+Explain from scratch
+
+In Java, String is immutable, meaning once the object is created its value cannot be changed. But Java provides mutable alternatives: StringBuffer and StringBuilder. They allow you to modify the same object without creating new objects.
+
+Let’s understand from scratch step-by-step.
+
+1️⃣ What is Immutable String?
+String s = "Java";
+s = s.concat(" Programming");
+System.out.println(s);
+What happens internally?
+
+"Java" object is created in String Pool.
+
+concat() does not modify the original object.
+
+It creates a new object "Java Programming".
+
+Memory view:
+
+String Pool
+-----------
+"Java"
+"Java Programming"
+
+So many objects are created → memory waste if we modify strings frequently.
+
+Example:
+
+String s = "Hello";
+s = s + " World";
+s = s + " Java";
+
+Objects created:
+
+"Hello"
+"Hello World"
+"Hello World Java"
+
+3 objects created ❌
+
+2️⃣ Solution: Mutable Strings
+
+To solve this problem Java introduced:
+
+StringBuffer
+
+StringBuilder
+
+These classes allow modifying the same object.
+
+Meaning:
+
+Object value can be changed after creation
+3️⃣ StringBuffer (Mutable String)
+
+StringBuffer allows modifying the same object.
+
+Example:
+
+StringBuffer sb = new StringBuffer("Hello");
+
+sb.append(" World");
+sb.append(" Java");
+
+System.out.println(sb);
+
+Output
+
+Hello World Java
+Memory behavior
+Heap
+-----------------
+StringBuffer Object
+Value: "Hello"
+
+After append:
+Value: "Hello World"
+
+After append:
+Value: "Hello World Java"
+
+✔ Same object modified
+✔ No new objects created
+
+4️⃣ StringBuilder (Mutable String)
+
+StringBuilder works same as StringBuffer but faster.
+
+Example:
+
+StringBuilder sb = new StringBuilder("Hello");
+
+sb.append(" World");
+sb.append(" Java");
+
+System.out.println(sb);
+
+Output
+
+Hello World Java
+
+✔ Same object modified
+✔ Faster performance
+
+5️⃣ Why StringBuffer and StringBuilder are Mutable?
+
+Because they provide methods that modify the existing object.
+
+Important methods:
+
+Method	Purpose
+append()	Add text
+insert()	Insert text
+replace()	Replace characters
+delete()	Delete characters
+reverse()	Reverse string
+
+Example:
+
+StringBuilder sb = new StringBuilder("Java");
+
+sb.append(" Programming");
+sb.insert(5,"Language ");
+sb.replace(0,4,"Python");
+sb.delete(0,7);
+
+System.out.println(sb);
+6️⃣ Internal Difference
+String
+Immutable
+Every modification → New Object
+Thread Safe
+Slower when many modifications
+StringBuffer
+Mutable
+Same object modified
+Thread Safe (Synchronized)
+Slower than StringBuilder
+StringBuilder
+Mutable
+Same object modified
+Not Thread Safe
+Faster
+7️⃣ Simple Real Time Example
+
+Suppose you are building a log message.
+
+❌ Using String
+
+String log = "Start";
+log = log + " Process";
+log = log + " Completed";
+
+Creates multiple objects.
+
+✔ Using StringBuilder
+
+StringBuilder log = new StringBuilder("Start");
+
+log.append(" Process");
+log.append(" Completed");
+
+System.out.println(log);
+
+Only one object modified.
+
+Better for:
+
+loops
+
+large text building
+
+dynamic strings
+
+8️⃣ Interview Answer (Best Explanation)
+
+String is immutable in Java, meaning once created its value cannot be changed. Any modification creates a new object.
+
+To overcome this limitation Java provides StringBuffer and StringBuilder, which are mutable classes. They allow modifying the same object using methods like append(), insert(), replace(), and delete(), improving performance and reducing memory usage.
+
+✅ Quick Summary
+
+Feature	String	StringBuffer	StringBuilder
+Mutable	❌ No	✅ Yes	✅ Yes
+Thread Safe	✅ Yes	✅ Yes	❌ No
+Performance	Slow	Medium	Fast
+Object Creation	Multiple	Single	Single

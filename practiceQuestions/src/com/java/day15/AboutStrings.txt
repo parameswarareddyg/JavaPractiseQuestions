@@ -1,0 +1,253 @@
+In Java, a String is one of the most commonly used classes. It represents a sequence of characters such as words, sentences, or any text.
+
+1. What is a String in Java?
+
+A String is an object that represents a sequence of characters.
+
+Example:
+
+String name = "Reddy";
+String message = "Hello World";
+
+Here:
+
+"Reddy" and "Hello World" are String literals.
+
+name and message are String reference variables.
+
+In Java, String is a class, not a primitive datatype.
+
+String s = new String("Java");
+
+The String class belongs to the java.lang package, which is automatically imported.
+
+2. Ways to Create a String
+1️⃣ Using String Literal
+String s1 = "Java";
+
+Stored in String Constant Pool.
+
+2️⃣ Using new Keyword
+String s2 = new String("Java");
+
+Stored in Heap Memory.
+
+3. String is Immutable
+
+Immutable means cannot be changed after creation.
+
+Example:
+
+String s = "Java";
+s.concat(" Programming");
+System.out.println(s);
+
+Output:
+
+Java
+
+Because concat() creates new object, it does not modify the original string.
+
+Correct way:
+
+s = s.concat(" Programming");
+
+Output:
+
+Java Programming
+4. Important String Methods
+1️⃣ length()
+
+Returns number of characters.
+
+String s = "Java";
+System.out.println(s.length());
+
+Output:
+
+4
+2️⃣ toUpperCase()
+String s = "java";
+System.out.println(s.toUpperCase());
+
+Output
+
+JAVA
+3️⃣ toLowerCase()
+String s = "JAVA";
+System.out.println(s.toLowerCase());
+
+Output
+
+java
+4️⃣ charAt()
+
+Returns character at index.
+
+String s = "Java";
+System.out.println(s.charAt(2));
+
+Output
+
+v
+5️⃣ equals()
+
+Compares content of strings.
+
+String s1 = "Java";
+String s2 = "Java";
+
+System.out.println(s1.equals(s2));
+
+Output
+
+true
+6️⃣ equalsIgnoreCase()
+String s1 = "java";
+String s2 = "JAVA";
+
+System.out.println(s1.equalsIgnoreCase(s2));
+
+Output
+
+true
+7️⃣ concat()
+
+Combines two strings.
+
+String s1 = "Java";
+String s2 = " Programming";
+
+System.out.println(s1.concat(s2));
+
+Output
+
+Java Programming
+8️⃣ substring()
+
+Extracts part of string.
+
+String s = "Programming";
+
+System.out.println(s.substring(3));
+
+Output
+
+gramming
+5. String Comparison
+Using ==
+
+Compares memory location.
+
+String s1 = "Java";
+String s2 = "Java";
+
+System.out.println(s1 == s2);
+
+Output
+
+true
+Using equals()
+
+Compares values.
+
+String s1 = new String("Java");
+String s2 = new String("Java");
+
+System.out.println(s1.equals(s2));
+
+Output
+
+true
+6. String Memory Concept
+
+Java stores strings in:
+
+String Constant Pool (SCP)
+
+Heap Memory
+
+Example:
+
+String s1 = "Java";
+String s2 = "Java";
+
+Both refer to same object in SCP.
+
+But:
+
+String s1 = new String("Java");
+String s2 = new String("Java");
+
+Two separate objects in heap memory.
+
+7. Mutable vs Immutable
+Type	Example	Mutable?
+String	"Java"	❌ Immutable
+StringBuilder	Used for modifications	✅ Mutable
+StringBuffer	Thread-safe mutable string	✅ Mutable
+
+Example:
+
+StringBuilder sb = new StringBuilder("Java");
+sb.append(" Programming");
+
+System.out.println(sb);
+
+Output
+
+Java Programming
+8. Why String is Immutable?
+
+Java made String immutable for:
+
+1️⃣ Security
+2️⃣ Performance (String Pool)
+3️⃣ Thread Safety
+4️⃣ Caching
+
+9. Real-time Example
+class Student {
+    public static void main(String[] args) {
+
+        String firstName = "Reddy";
+        String lastName = "Gunnampalli";
+
+        String fullName = firstName + " " + lastName;
+
+        System.out.println("Full Name: " + fullName);
+    }
+}
+
+Output
+
+Full Name: Reddy Gunnampalli
+🔑 Interview Important Points
+
+String is a class in Java
+
+String objects are immutable
+
+Stored in String Constant Pool
+
+Two ways to create String:
+
+Literal
+
+new keyword
+
+== compares reference
+
+equals() compares values
+
+✅ If you want, I can also explain advanced String concepts often asked in interviews:
+
+String Constant Pool (with diagram)
+
+String vs StringBuilder vs StringBuffer
+
+Why String is immutable (deep explanation)
+
+Memory diagram for String creation
+
+20 Important String interview programs
