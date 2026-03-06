@@ -10,7 +10,7 @@ public class StringMethods {
 		String s2 = "    Hello World      ";
 		String s3 = "";
 		String s4=" ";
-		 
+		
 		System.out.println(s.startsWith("h"));//false
 		System.out.println(s.endsWith("H"));//false
 		System.out.println(s.contains("el"));//true
@@ -41,7 +41,7 @@ public class StringMethods {
         System.out.println(s.charAt(2));
         System.out.println(s.replace('o', 't'));
         System.out.println(s.replaceAll(s1, s2));
-        System.out.println(i.valueOf(345) +  567);
+        System.out.println(i.valueOf(345) +  567);//"345"+567
         System.out.println(345+567);
         System.out.println(s3.isEmpty() + " "+s4.isEmpty());
         System.out.println(s3.isBlank() + " "+s4.isBlank());

@@ -1,0 +1,369 @@
+1️⃣ What are Wrapper Classes in Java?
+
+In Java, primitive data types (like int, double, char) are not objects.
+But sometimes Java APIs and collections work only with objects.
+
+So Java provides Wrapper Classes — classes that wrap primitive values into objects.
+
+👉 In simple words:
+
+Wrapper Class = Object representation of a primitive data type
+
+Example:
+
+int a = 10;          // Primitive
+Integer b = 10;      // Wrapper Object
+
+Here Integer wraps the primitive value 10 into an object.
+
+2️⃣ Why Wrapper Classes are Needed?
+
+Primitive types cannot be used everywhere in Java.
+
+Wrapper classes are used when:
+
+1. Collections
+
+Collections store only objects, not primitives.
+
+❌ Invalid
+
+ArrayList<int> list = new ArrayList<>();
+
+✅ Valid
+
+ArrayList<Integer> list = new ArrayList<>();
+list.add(10);
+2. Utility Methods
+
+Wrapper classes provide many useful methods.
+
+Example:
+
+Integer.parseInt("100");
+Double.parseDouble("10.5");
+3. Conversions
+
+Wrapper classes help convert:
+
+String → Number
+
+Number → String
+
+Primitive → Object
+
+Object → Primitive
+
+3️⃣ Primitive Types and Wrapper Classes
+Primitive Type	Wrapper Class
+byte	Byte
+short	Short
+int	Integer
+long	Long
+float	Float
+double	Double
+char	Character
+boolean	Boolean
+
+Example:
+
+int a = 10;
+Integer obj = Integer.valueOf(a);
+4️⃣ Ways to Create Wrapper Objects
+1️⃣ Using Constructor (Old Way)
+Integer obj = new Integer(10);
+
+⚠️ This constructor is deprecated now.
+
+2️⃣ Using valueOf() Method (Recommended)
+Integer obj = Integer.valueOf(10);
+3️⃣ Autoboxing (Automatic Conversion)
+
+Java automatically converts primitive → object.
+
+int a = 10;
+Integer obj = a;   // Autoboxing
+5️⃣ Unboxing
+
+Converting Wrapper Object → Primitive
+
+Example:
+
+Integer obj = 20;
+int num = obj;   // Unboxing
+6️⃣ Autoboxing and Unboxing Example
+public class Test {
+
+    public static void main(String[] args) {
+
+        int a = 10;
+
+        // Autoboxing
+        Integer obj = a;
+
+        // Unboxing
+        int b = obj;
+
+        System.out.println(a);
+        System.out.println(obj);
+        System.out.println(b);
+    }
+}
+
+Output
+
+10
+10
+10
+7️⃣ Important Wrapper Class Methods
+1️⃣ parseInt()
+
+Convert String → int
+
+String s = "100";
+int num = Integer.parseInt(s);
+
+System.out.println(num);
+2️⃣ valueOf()
+
+Convert primitive → wrapper object
+
+Integer obj = Integer.valueOf(50);
+3️⃣ toString()
+
+Convert number → String
+
+Integer a = 10;
+String s = a.toString();
+4️⃣ compareTo()
+
+Compare two objects
+
+Integer a = 10;
+Integer b = 20;
+
+System.out.println(a.compareTo(b));
+
+Output
+
+-1
+8️⃣ Real-Time Example
+
+Suppose user input comes as String.
+
+Scanner sc = new Scanner(System.in);
+
+System.out.println("Enter number:");
+
+String input = sc.nextLine();
+
+int num = Integer.parseInt(input);
+
+System.out.println("Square: " + (num * num));
+
+Here wrapper class Integer converts String → int.
+
+9️⃣ Memory Representation
+
+Example
+
+Integer a = 10;
+Integer b = 10;
+
+Java uses Integer Cache (-128 to 127).
+
+So both may point to same object.
+
+But:
+
+Integer a = new Integer(10);
+Integer b = new Integer(10);
+
+Now two separate objects will be created in heap.
+
+🔟 Important Interview Points
+
+1️⃣ Wrapper classes convert primitive → object
+2️⃣ Used in Collections
+3️⃣ Supports Autoboxing / Unboxing
+4️⃣ Provides utility methods
+5️⃣ Helps in String conversions
+
+🔥 Simple Definition for Interview
+
+Wrapper Classes in Java are classes that convert primitive data types into objects so they can be used in collections and provide utility methods for conversions and operations.
+
+✅ If you want, I can also explain:
+
+Wrapper Class Memory Diagram (Very Important)
+
+Integer Cache (-128 to 127) Concept
+
+parseInt() vs valueOf() (Interviewer Favorite Question)
+
+Real Time Wrapper Class Scenarios
+
+These are commonly asked in Java interviews.
+
+Wrapper Class Memory Diagram (Very Important)
+
+Understanding Wrapper Class Memory is very important to avoid confusion in interviews. Let’s start step-by-step.
+
+1️⃣ Wrapper Class Memory Concept
+
+Wrapper objects are stored in Heap Memory because they are objects.
+
+Example:
+
+Integer a = 10;
+Integer b = 20;
+
+Internally Java does:
+
+Integer a = Integer.valueOf(10);
+Integer b = Integer.valueOf(20);
+
+So objects are created in Heap Memory.
+
+2️⃣ Memory Diagram Example
+
+Example code:
+
+Integer a = 10;
+Integer b = 20;
+
+Memory representation:
+
+Stack Memory                Heap Memory
+-------------               ----------------
+a  -----------→             Integer Object (10)
+
+b  -----------→             Integer Object (20)
+
+Explanation:
+
+Variable a stored in Stack
+
+Object 10 stored in Heap
+
+Stack variable points to Heap object
+
+3️⃣ Integer Cache Concept (-128 to 127)
+
+Java has Integer Cache for values -128 to 127.
+
+Example:
+
+Integer a = 100;
+Integer b = 100;
+
+Memory Diagram:
+
+Stack Memory                Heap Memory (Integer Cache)
+-------------               ---------------------------
+a  -----------→
+                 Integer Object (100)
+b  -----------→
+
+Both a and b point to same object.
+
+So:
+
+System.out.println(a == b);
+
+Output:
+
+true
+
+Because both references point to same cached object.
+
+4️⃣ When Value is Outside Cache Range
+
+Example:
+
+Integer a = 200;
+Integer b = 200;
+
+Memory Diagram:
+
+Stack Memory                Heap Memory
+-------------               ----------------
+a --------→                 Integer Object (200)
+
+b --------→                 Integer Object (200)
+
+Now two objects are created.
+
+So:
+
+System.out.println(a == b);
+
+Output:
+
+false
+
+Because objects are different.
+
+5️⃣ Using new Keyword
+
+Example:
+
+Integer a = new Integer(10);
+Integer b = new Integer(10);
+
+Memory Diagram:
+
+Stack Memory                Heap Memory
+-------------               ----------------
+a --------→                 Integer Object (10)
+
+b --------→                 Integer Object (10)
+
+Here cache is ignored.
+
+So:
+
+System.out.println(a == b);
+
+Output:
+
+false
+
+Because two objects are created manually.
+
+6️⃣ Best Way to Compare Wrapper Objects
+
+Never use == for wrapper values.
+
+Use:
+
+Integer a = 200;
+Integer b = 200;
+
+System.out.println(a.equals(b));
+
+Output
+
+true
+
+Because .equals() compares values, not references.
+
+7️⃣ Interview Summary
+
+Wrapper class memory works like this:
+
+1️⃣ Wrapper objects are stored in Heap
+2️⃣ References are stored in Stack
+3️⃣ Java maintains Integer Cache (-128 to 127)
+4️⃣ Cached values share same object
+5️⃣ new keyword always creates new object
+6️⃣ Use equals() instead of ==
+
+8️⃣ Quick Example to Remember
+Integer a = 100;
+Integer b = 100;
+System.out.println(a == b);  // true
+
+Integer x = 200;
+Integer y = 200;
+System.out.println(x == y);  // false

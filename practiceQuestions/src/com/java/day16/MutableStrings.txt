@@ -1,0 +1,234 @@
+In Java, StringBuffer and StringBuilder are used when we want mutable strings (strings that can change).
+Let’s understand from scratch step-by-step.
+
+1️⃣ Problem with String (Why StringBuffer/StringBuilder came)
+
+In Java, String is immutable.
+
+Example:
+
+String s = "Java";
+s = s + " Programming";
+
+What happens in memory?
+
+"Java" object is created.
+
+"Java Programming" is created as a new object.
+
+Old object remains in memory until GC removes it.
+
+So if we do many operations:
+
+String s = "Java";
+s = s + " Programming";
+s = s + " Language";
+s = s + " Tutorial";
+
+Java will create multiple objects, which wastes memory and reduces performance.
+
+👉 To solve this problem Java introduced:
+
+StringBuffer
+
+StringBuilder
+
+Both allow mutable strings.
+
+2️⃣ What is Mutable?
+
+Mutable = Value can be changed without creating new object
+
+Example:
+
+Java  → Java Programming
+
+Instead of creating new object, same object will be modified.
+
+3️⃣ StringBuffer
+
+StringBuffer is a mutable class used to modify strings.
+
+Example:
+
+StringBuffer sb = new StringBuffer("Java");
+
+sb.append(" Programming");
+
+System.out.println(sb);
+
+Output:
+
+Java Programming
+
+Here same object is modified.
+
+4️⃣ Memory Behaviour
+Heap Memory
+
+StringBuffer Object
+-----------------------
+Java
+
+After append()
+
+Java Programming
+
+No new object is created.
+
+5️⃣ Important Methods of StringBuffer
+1. append()
+
+Adds text to the end.
+
+StringBuffer sb = new StringBuffer("Java");
+sb.append(" Programming");
+
+System.out.println(sb);
+
+Output:
+
+Java Programming
+2. insert()
+
+Insert text at specific position.
+
+StringBuffer sb = new StringBuffer("Java");
+sb.insert(4, " Programming");
+
+System.out.println(sb);
+
+Output:
+
+Java Programming
+3. replace()
+
+Replace characters.
+
+StringBuffer sb = new StringBuffer("Java Programming");
+sb.replace(5,16,"Language");
+
+System.out.println(sb);
+
+Output:
+
+Java Language
+4. delete()
+
+Delete characters.
+
+StringBuffer sb = new StringBuffer("Java Programming");
+sb.delete(4,16);
+
+System.out.println(sb);
+
+Output:
+
+Java
+5. reverse()
+StringBuffer sb = new StringBuffer("Java");
+sb.reverse();
+
+System.out.println(sb);
+
+Output
+
+avaJ
+6️⃣ What is StringBuilder?
+
+StringBuilder is exactly same as StringBuffer but faster.
+
+Example:
+
+StringBuilder sb = new StringBuilder("Java");
+
+sb.append(" Programming");
+
+System.out.println(sb);
+
+Output:
+
+Java Programming
+7️⃣ Difference Between StringBuffer and StringBuilder
+Feature	StringBuffer	StringBuilder
+Thread Safe	Yes	No
+Performance	Slower	Faster
+Introduced	Java 1.0	Java 1.5
+Synchronization	Yes	No
+8️⃣ What is Thread Safe?
+
+Thread safe means multiple threads can access safely.
+
+Example:
+
+Thread1 → modifying string
+Thread2 → modifying string
+
+If synchronization exists → no data corruption
+
+✔ StringBuffer → Thread Safe
+❌ StringBuilder → Not Thread Safe
+
+9️⃣ When to Use Which?
+Use StringBuffer
+
+When working with Multithreading
+
+Example:
+
+Banking applications
+Servers
+Thread based programs
+Use StringBuilder
+
+When working with Single thread
+
+Example:
+
+Normal Java programs
+Data processing
+Loops
+String manipulation
+🔟 Real-Time Example
+
+Bad practice:
+
+String s = "";
+
+for(int i=0;i<1000;i++){
+    s = s + i;
+}
+
+This creates 1000 objects ❌
+
+Good practice:
+
+StringBuilder sb = new StringBuilder();
+
+for(int i=0;i<1000;i++){
+    sb.append(i);
+}
+
+System.out.println(sb);
+
+Only one object created ✔
+
+1️⃣1️⃣ Interview Definition
+
+StringBuffer
+
+A mutable class in Java used to modify strings. It is synchronized and thread safe.
+
+StringBuilder
+
+A mutable class used to modify strings. It is not synchronized and provides better performance.
+
+1️⃣2️⃣ Memory Comparison
+Type	Mutable	Object Creation
+String	❌ No	Multiple Objects
+StringBuffer	✔ Yes	Same Object
+StringBuilder	✔ Yes	Same Object
+
+✔ String → Immutable
+✔ StringBuffer → Mutable + Thread Safe
+✔ StringBuilder → Mutable + Faster
