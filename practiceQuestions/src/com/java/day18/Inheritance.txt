@@ -1,0 +1,250 @@
+Inheritance in Java
+
+Inheritance is one of the main concepts of Object-Oriented Programming (OOP). It allows one class to acquire the properties and behaviors (variables and methods) of another class.
+
+In simple terms:
+
+Inheritance means creating a new class from an existing class so that the new class can reuse the code of the existing class.
+
+1. Basic Terminology
+Term	Meaning
+Superclass / Parent class	The class whose properties are inherited
+Subclass / Child class	The class that inherits from another class
+extends keyword	Used to implement inheritance in Java
+2. Simple Example
+class Animal {
+    void eat() {
+        System.out.println("Animal is eating");
+    }
+}
+
+class Dog extends Animal {
+    void bark() {
+        System.out.println("Dog is barking");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Dog d = new Dog();
+        d.eat();   // inherited method
+        d.bark();  // own method
+    }
+}
+Output
+Animal is eating
+Dog is barking
+Explanation
+
+Animal → Parent class
+
+Dog → Child class
+
+Dog inherits the eat() method from Animal.
+
+So the object d can access:
+
+its own method → bark()
+
+inherited method → eat()
+
+3. Real World Example
+
+Think of this example:
+
+Vehicle
+   ↑
+Car
+
+Vehicle has common properties like
+
+speed
+
+fuel
+
+start()
+
+Car automatically gets them.
+
+Vehicle (Parent)
+   |
+   |----Car (Child)
+4. Why Inheritance is Used
+1️⃣ Code Reusability
+
+Write once → reuse many times.
+
+2️⃣ Reduces Code Duplication
+3️⃣ Improves Code Organization
+4️⃣ Supports Method Overriding (Runtime Polymorphism)
+5. Types of Inheritance in Java
+
+Java supports 5 conceptual types, but not all are directly supported with classes.
+
+1️⃣ Single Inheritance
+
+One parent → One child
+
+A
+↓
+B
+
+Example:
+
+class A {}
+class B extends A {}
+2️⃣ Multilevel Inheritance
+
+Chain inheritance.
+
+A
+↓
+B
+↓
+C
+
+Example
+
+class A {
+    void display() {
+        System.out.println("Class A");
+    }
+}
+
+class B extends A {}
+
+class C extends B {}
+3️⃣ Hierarchical Inheritance
+
+One parent → Multiple children
+
+      A
+     / \
+    B   C
+
+Example
+
+class A {
+    void show() {
+        System.out.println("Class A");
+    }
+}
+
+class B extends A {}
+class C extends A {}
+4️⃣ Multiple Inheritance (❌ Not supported with classes)
+A      B
+ \    /
+   C
+
+Java does not allow this with classes because of the Diamond Problem.
+
+But it is possible using interfaces.
+
+Example:
+
+interface A {}
+interface B {}
+
+class C implements A, B {}
+5️⃣ Hybrid Inheritance
+
+Combination of multiple inheritance types.
+
+Supported only with interfaces, not with classes.
+
+6. super Keyword in Inheritance
+
+super is used to access parent class members.
+
+Example
+class Animal {
+    void eat() {
+        System.out.println("Animal eats food");
+    }
+}
+
+class Dog extends Animal {
+    void eat() {
+        super.eat();
+        System.out.println("Dog eats bones");
+    }
+}
+7. Method Overriding in Inheritance
+
+When the child class provides its own implementation of a parent method.
+
+Example:
+
+class Animal {
+    void sound() {
+        System.out.println("Animal makes sound");
+    }
+}
+
+class Dog extends Animal {
+    void sound() {
+        System.out.println("Dog barks");
+    }
+}
+8. Constructor in Inheritance
+
+When a child object is created:
+
+1️⃣ Parent constructor executes first
+2️⃣ Child constructor executes next
+
+Example:
+
+class A {
+    A() {
+        System.out.println("Parent constructor");
+    }
+}
+
+class B extends A {
+    B() {
+        System.out.println("Child constructor");
+    }
+}
+
+Output
+
+Parent constructor
+Child constructor
+9. Memory Diagram (Very Important)
+
+When we create:
+
+Dog d = new Dog();
+
+Memory structure:
+
+Heap Memory
+-------------
+Dog Object
+-------------
+eat()   ← inherited from Animal
+bark()  ← Dog method
+
+The Dog object contains both parent and child members.
+
+10. Important Rules of Inheritance
+
+Use extends keyword.
+
+Java supports single inheritance for classes.
+
+Constructors are not inherited.
+
+Private members are not accessible in child class.
+
+Use super to access parent members.
+
+11. Interview Definition
+
+A very good definition is:
+
+Inheritance is a mechanism in Java where one class acquires the properties and behaviors of another class
+using the extends keyword,
+ enabling code reusability and hierarchical relationships.

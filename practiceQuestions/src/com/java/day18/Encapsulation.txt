@@ -1,0 +1,523 @@
+Encapsulation in Java (Detailed Explanation)
+1. What is Encapsulation?
+
+Encapsulation is one of the four main OOP (Object-Oriented Programming) principles in Java.
+
+Definition:
+Encapsulation is the process of wrapping data (variables) and methods (functions) together into a single unit (class) and restricting direct access to the data.
+
+In simple words:
+
+Encapsulation = Data + Methods + Data Protection
+
+It protects data by hiding it from outside access.
+
+2. Real-Time Example
+
+Think about an ATM Machine.
+
+You can:
+
+Insert card
+
+Enter PIN
+
+Withdraw money
+
+But you cannot directly access the bank database.
+
+So the data is hidden and you interact through methods.
+
+This is exactly how Encapsulation works in Java.
+
+3. How Encapsulation is Achieved in Java
+
+Encapsulation is implemented using:
+
+Private variables (Data hiding)
+
+Public Getter methods
+
+Public Setter methods
+
+Structure:
+
+Class
+ ├── Private Variables
+ ├── Getter Methods
+ └── Setter Methods
+4. Example of Encapsulation
+Step 1: Create a Class
+class Student {
+
+    private int id;
+    private String name;
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+}
+Step 2: Access in Another Class
+public class Main {
+
+    public static void main(String[] args) {
+
+        Student s = new Student();
+
+        s.setId(101);
+        s.setName("Reddy");
+
+        System.out.println(s.getId());
+        System.out.println(s.getName());
+    }
+}
+5. Memory Diagram (Very Important)
+Stack Memory
+-------------------------
+Student s
+
+Heap Memory
+-------------------------
+Student Object
+   id = 101
+   name = "Reddy"
+
+Access Flow:
+
+Main Class
+   ↓
+Setter Method
+   ↓
+Private Variable
+Private Variable
+   ↓
+Getter Method
+   ↓
+Main Class
+6. Why Variables are Declared Private
+
+If variables are public, anyone can change them.
+
+Example (Bad Practice):
+
+class Student{
+    public int id;
+}
+Student s = new Student();
+s.id = -100;
+
+This is invalid data.
+
+Using Encapsulation:
+
+public void setId(int id){
+    if(id > 0){
+        this.id = id;
+    }
+}
+
+Now validation is possible.
+
+7. Advantages of Encapsulation
+1. Data Security
+
+Sensitive data is hidden.
+
+2. Data Validation
+
+We can validate input in setter methods.
+
+3. Better Control
+
+We control how data is accessed or modified.
+
+4. Code Maintainability
+
+Easy to maintain large applications.
+
+5. Flexibility
+
+Internal implementation can change without affecting users.
+
+8. Encapsulation Flow
+User
+  ↓
+Setter Method
+  ↓
+Private Variable
+  ↓
+Getter Method
+  ↓
+User
+9. Java Naming Convention
+
+Getter:
+
+getVariableName()
+
+Setter:
+
+setVariableName()
+
+Example:
+
+getName()
+setName()
+getAge()
+setAge()
+10. Best Real-Time Example
+
+Example: Bank Account
+
+class BankAccount {
+
+    private double balance;
+
+    public void deposit(double amount){
+        balance = balance + amount;
+    }
+
+    public double getBalance(){
+        return balance;
+    }
+}
+
+Usage:
+
+BankAccount b = new BankAccount();
+
+b.deposit(5000);
+
+System.out.println(b.getBalance());
+
+User cannot directly change balance.
+
+11. Encapsulation vs Data Hiding
+Feature	Encapsulation	Data Hiding
+Meaning	Wrapping data + methods	Restricting access
+Achieved By	Class	Access modifiers
+Example	Getter/Setter	private variables
+
+Data Hiding is part of Encapsulation.
+
+12. Encapsulation Rule (Important for Interviews)
+
+To create fully encapsulated class:
+
+Declare variables as private
+
+Provide public getter and setter methods
+
+Example:
+
+private variables + public methods = Encapsulation
+13. Fully Encapsulated Class Example
+class Employee {
+
+    private int empId;
+    private String empName;
+
+    public int getEmpId() {
+        return empId;
+    }
+
+    public void setEmpId(int empId) {
+        this.empId = empId;
+    }
+
+    public String getEmpName() {
+        return empName;
+    }
+
+    public void setEmpName(String empName) {
+        this.empName = empName;
+    }
+}
+14. Interview Questions
+Q1: What is Encapsulation?
+
+Encapsulation is the process of binding data and methods together into a single unit and restricting direct access to the data.
+
+Q2: How to achieve Encapsulation?
+
+By using:
+
+Private variables
+
+Public Getter & Setter methods
+
+Q3: What is a fully encapsulated class?
+
+A class where all variables are private.
+
+If you want, I can also explain:
+
+Encapsulation Memory Diagram (Advanced Level)
+
+Real-time Banking System Example
+
+Difference between Abstraction vs Encapsulation (Very Important Interview Question).
+
+Encapsulation Memory Diagram (Advanced Level)
+
+Real-time Banking System Example
+
+Difference between Abstraction vs Encapsulation (Very Important Interview Question).
+
+I’ll explain these three important topics step-by-step so the concept becomes very clear.
+
+1. Encapsulation Memory Diagram (Advanced Level)
+
+Consider this encapsulated class in Java.
+
+class Student {
+
+    private int id;
+    private String name;
+
+    public void setId(int id){
+        this.id = id;
+    }
+
+    public int getId(){
+        return id;
+    }
+
+    public void setName(String name){
+        this.name = name;
+    }
+
+    public String getName(){
+        return name;
+    }
+}
+Main Class
+public class Main {
+
+    public static void main(String[] args) {
+
+        Student s = new Student();
+
+        s.setId(101);
+        s.setName("Reddy");
+
+        System.out.println(s.getId());
+        System.out.println(s.getName());
+    }
+}
+Step-by-Step Memory Creation
+Step 1: Object Creation
+Student s = new Student();
+
+Memory:
+
+STACK MEMORY
+-----------------
+s  →  reference
+
+HEAP MEMORY
+-----------------
+Student Object
+id = 0
+name = null
+Step 2: Calling Setter Method
+s.setId(101);
+
+Flow:
+
+Stack
+-----
+Main Method
+   ↓
+setId() Method
+
+Memory:
+
+HEAP
+-----------------
+Student Object
+id = 101
+name = null
+Step 3: Setting Name
+s.setName("Reddy");
+
+Memory:
+
+HEAP MEMORY
+-----------------
+Student Object
+id = 101
+name = "Reddy"
+Step 4: Getter Method Access
+s.getId();
+
+Flow:
+
+Main Class
+   ↓
+Getter Method
+   ↓
+Private Variable
+   ↓
+Return Value
+Final Memory Structure
+STACK MEMORY
+-------------------
+s  →  Student Object
+
+HEAP MEMORY
+-------------------
+Student Object
+  id = 101
+  name = "Reddy"
+
+Important point ⭐
+
+Direct access ❌
+s.id = 101
+
+Indirect access ✔
+s.setId(101)
+
+That is Encapsulation.
+
+2. Real-Time Banking System Example
+
+Encapsulation is heavily used in banking systems.
+
+Example:
+
+class BankAccount {
+
+    private double balance;
+
+    public void deposit(double amount){
+        balance = balance + amount;
+    }
+
+    public void withdraw(double amount){
+
+        if(amount <= balance){
+            balance = balance - amount;
+        } else {
+            System.out.println("Insufficient balance");
+        }
+    }
+
+    public double getBalance(){
+        return balance;
+    }
+}
+Main Program
+public class Main {
+
+    public static void main(String[] args) {
+
+        BankAccount acc = new BankAccount();
+
+        acc.deposit(5000);
+        acc.withdraw(2000);
+
+        System.out.println(acc.getBalance());
+    }
+}
+Why Encapsulation Here?
+
+If balance was public:
+
+acc.balance = -10000;
+
+This would break the system.
+
+But encapsulation prevents this:
+
+balance → private
+access → controlled by methods
+
+Bank flow:
+
+User
+ ↓
+deposit()
+withdraw()
+ ↓
+private balance
+
+This protects the data 🔒.
+
+3. Difference Between Abstraction vs Encapsulation
+
+Both are core OOP concepts in Java.
+
+Feature	Encapsulation	Abstraction
+Definition	Wrapping data and methods together	Hiding implementation details
+Focus	Data protection	Showing only essential features
+Achieved By	Private variables + getters/setters	Abstract classes / Interfaces
+Access	Controls data access	Controls functionality exposure
+Example	Bank balance protection	ATM machine operations
+Simple Real-Life Example
+Encapsulation
+Capsule
+Inside → medicine
+Outside → protected
+
+Data is wrapped and protected.
+
+Abstraction
+
+ATM Machine
+
+You see:
+
+Withdraw
+Deposit
+Check Balance
+
+But you cannot see internal code.
+
+This is Abstraction.
+
+Java Example of Abstraction
+abstract class Vehicle {
+
+    abstract void start();
+}
+
+Child class:
+
+class Car extends Vehicle {
+
+    void start(){
+        System.out.println("Car Starts with Key");
+    }
+}
+
+User only calls:
+
+car.start();
+
+Internal implementation is hidden.
+
+Interview Shortcut Answer ⭐
+Encapsulation
+
+Encapsulation is wrapping data and methods together and restricting direct access to data using private variables.
+
+Abstraction
+
+Abstraction hides implementation details and shows only essential functionality to the user.
+
+✔ Encapsulation → Data hiding
+✔ Abstraction → Implementation hiding

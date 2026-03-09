@@ -14,6 +14,8 @@ class Bark extends Eat
 		System.out.println("Barking");
 	}
 }
+
+
 public class MultilevelInheritance extends Bark{
 
 	public static void main(String[] args) {
