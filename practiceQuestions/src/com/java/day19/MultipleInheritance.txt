@@ -1,0 +1,54 @@
+Definition
+
+Multiple Inheritance in Java means a class implementing multiple interfaces so that it can inherit behaviors from more than one source.
+
+Example: Multiple Inheritance using Interfaces in Java
+// First Interface
+interface Father {
+    void showFather();
+}
+
+// Second Interface
+interface Mother {
+    void showMother();
+}
+
+// Child class implementing both interfaces
+class Child implements Father, Mother {
+
+    public void showFather() {
+        System.out.println("This is Father interface method");
+    }
+
+    public void showMother() {
+        System.out.println("This is Mother interface method");
+    }
+
+    void showChild() {
+        System.out.println("This is Child class method");
+    }
+}
+
+public class MultipleInheritanceExample {
+    public static void main(String[] args) {
+
+        Child obj = new Child();
+
+        obj.showFather();
+        obj.showMother();
+        obj.showChild();
+    }
+}
+Output
+This is Father interface method
+This is Mother interface method
+This is Child class method
+Explanation
+
+Father and Mother are interfaces.
+
+Child class implements both interfaces.
+
+The Child class must override all interface methods.
+
+This allows multiple inheritance behavior in Java.

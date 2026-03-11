@@ -1,0 +1,177 @@
+Multi-Level Inheritance in Java
+
+Multi-Level Inheritance means a class inherits from a class, and that parent class itself inherits from another class.
+So the inheritance happens in multiple levels (levels of hierarchy).
+
+Grandparent Class  →  Parent Class  →  Child Class
+
+The child class gets properties of both parent and grandparent classes.
+
+1️⃣ Definition
+
+Multi-Level Inheritance is a type of inheritance where a class is derived from another derived class, forming a chain of inheritance.
+
+2️⃣ Structure Diagram
+        Animal
+          ↑
+        Dog
+          ↑
+       Puppy
+
+Animal → Base class
+
+Dog → Derived from Animal
+
+Puppy → Derived from Dog
+
+Here Puppy inherits properties of both Dog and Animal.
+
+3️⃣ Java Example
+// Grandparent Class
+class Animal
+{
+    void eat()
+    {
+        System.out.println("Animal is eating");
+    }
+}
+
+// Parent Class
+class Dog extends Animal
+{
+    void bark()
+    {
+        System.out.println("Dog is barking");
+    }
+}
+
+// Child Class
+class Puppy extends Dog
+{
+    void weep()
+    {
+        System.out.println("Puppy is weeping");
+    }
+}
+
+// Main Class
+public class MultiLevelInheritanceDemo
+{
+    public static void main(String[] args)
+    {
+        Puppy p = new Puppy();
+
+        p.eat();   // From Animal
+        p.bark();  // From Dog
+        p.weep();  // From Puppy
+    }
+}
+4️⃣ Output
+Animal is eating
+Dog is barking
+Puppy is weeping
+5️⃣ Memory Representation (Important for Interviews)
+Object: p (Puppy)
+
+---------------------------------
+| Animal class methods          |
+|  eat()                        |
+---------------------------------
+| Dog class methods             |
+|  bark()                       |
+---------------------------------
+| Puppy class methods           |
+|  weep()                       |
+---------------------------------
+
+When the Puppy object is created, it contains access to:
+
+Animal methods
+
+Dog methods
+
+Puppy methods
+
+6️⃣ Real-Time Example
+Banking System
+Bank
+  ↑
+SavingsAccount
+  ↑
+PremiumSavingsAccount
+
+Example:
+
+class Bank
+{
+    void bankDetails()
+    {
+        System.out.println("Bank provides financial services");
+    }
+}
+
+class SavingsAccount extends Bank
+{
+    void interest()
+    {
+        System.out.println("Savings account provides interest");
+    }
+}
+
+class PremiumSavingsAccount extends SavingsAccount
+{
+    void premiumBenefits()
+    {
+        System.out.println("Premium account gives extra benefits");
+    }
+}
+
+public class Test
+{
+    public static void main(String[] args)
+    {
+        PremiumSavingsAccount acc = new PremiumSavingsAccount();
+
+        acc.bankDetails();
+        acc.interest();
+        acc.premiumBenefits();
+    }
+}
+7️⃣ Key Points
+
+✔ Java supports Multi-Level Inheritance
+✔ A child class can access all properties of its parent chain
+✔ Achieved using the extends keyword
+✔ Forms a linear inheritance chain
+
+8️⃣ Advantages
+
+✅ Code Reusability
+✅ Better code organization
+✅ Logical hierarchy of classes
+✅ Reduced code duplication
+
+9️⃣ Difference Between Single vs Multi-Level Inheritance
+Feature	Single Inheritance	Multi-Level Inheritance
+Levels	One level	Multiple levels
+Example	A → B	A → B → C
+Complexity	Simple	Slightly complex
+Usage	Basic reuse	Hierarchical reuse
+
+✅ Single Inheritance
+
+A → B
+
+✅ Multi-Level Inheritance
+
+A → B → C
+
+💡 Interview Tip
+
+If interviewer asks:
+
+"Does Java support Multi-Level Inheritance?"
+
+Answer:
+
+✔ Yes, Java supports Multi-Level Inheritance using classes and the extends keyword.

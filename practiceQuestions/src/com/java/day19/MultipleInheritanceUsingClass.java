@@ -21,9 +21,9 @@ public class MultipleInheritanceUsingClass {
 
 	public static void main(String[] args) {
 		
-		Child obj = new Child();
-		obj.show();
-		obj.display();
+//		Child obj = new Child();
+//		obj.show();
+//		obj.display();
 	}
 
 }

@@ -1,0 +1,160 @@
+Single Level Inheritance in Java
+
+Single Level Inheritance means one child class inherits from one parent class.
+Only one level of hierarchy exists between the parent and child.
+
+➡️ Parent Class (Super Class) → Child Class (Sub Class)
+
+The child class inherits properties (variables) and behaviors (methods) from the parent class.
+
+Definition
+
+Single Level Inheritance is a type of inheritance where one class extends another class, allowing the child class to reuse the features of the parent class.
+
+Parent Class  →  Child Class
+Basic Syntax in Java
+class Parent {
+    // variables and methods
+}
+
+class Child extends Parent {
+    // additional features
+}
+
+extends keyword is used to inherit a class.
+
+Child class gets access to public and protected members of parent.
+
+Simple Real-Time Example
+Example: Vehicle and Car
+
+A Car is a type of Vehicle, so Car can inherit properties of Vehicle.
+
+Program
+class Vehicle {
+
+    void startEngine() {
+        System.out.println("Engine Started");
+    }
+}
+
+class Car extends Vehicle {
+
+    void drive() {
+        System.out.println("Car is Driving");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        Car c = new Car();
+
+        c.startEngine(); // inherited method
+        c.drive();       // child class method
+    }
+}
+Output
+Engine Started
+Car is Driving
+Memory Diagram
+                Vehicle Class
+              ----------------
+              startEngine()
+
+                     ↑
+                     |
+                  extends
+
+                Car Class
+              ----------------
+              drive()
+Object Creation
+Car c = new Car();
+
+Memory Representation:
+
+Object c
+-----------------
+startEngine()
+drive()
+-----------------
+
+The Car object can access both methods:
+
+Parent method → startEngine()
+
+Child method → drive()
+
+Another Example (Interview Level)
+Example: Employee and Developer
+class Employee {
+
+    int salary = 50000;
+
+    void work() {
+        System.out.println("Employee is working");
+    }
+}
+
+class Developer extends Employee {
+
+    void code() {
+        System.out.println("Developer is coding");
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+
+        Developer d = new Developer();
+
+        System.out.println(d.salary);
+        d.work();
+        d.code();
+    }
+}
+Output
+50000
+Employee is working
+Developer is coding
+Key Points of Single Inheritance
+
+1️⃣ Uses extends keyword
+
+2️⃣ Child class inherits fields and methods
+
+3️⃣ Promotes code reusability
+
+4️⃣ Parent constructor is called automatically
+
+5️⃣ Supports method overriding
+
+Advantages
+
+✔ Code Reusability
+✔ Less Code Duplication
+✔ Easy Maintenance
+✔ Better Program Structure
+
+Real World Example
+Animal
+  |
+  | (extends)
+  ↓
+Dog
+
+Dog inherits:
+
+eat()
+
+sleep()
+
+Important Interview Question
+Can Java support Multiple Inheritance using classes?
+
+❌ No
+
+Java does not support multiple inheritance using classes because of the Diamond Problem.
+
+But Java supports it using Interfaces.

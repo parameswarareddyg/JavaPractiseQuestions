@@ -1,0 +1,235 @@
+Hybrid Inheritance in Java (Deep Explanation)
+1. What is Hybrid Inheritance?
+
+Hybrid Inheritance is a combination of two or more types of inheritance in one program.
+
+It typically combines:
+
+Single Inheritance
+
+Multilevel Inheritance
+
+Hierarchical Inheritance
+
+Multiple Inheritance
+
+So, Hybrid Inheritance = Combination of different inheritance types.
+
+2. Important Point in Java
+
+Java does NOT support Hybrid Inheritance using classes directly because it would require Multiple Inheritance, which Java avoids due to the Diamond Problem.
+
+However, Java achieves Hybrid Inheritance using Interfaces.
+
+3. Structure of Hybrid Inheritance
+
+Example combination:
+
+        A
+       / \
+      B   C
+       \ /
+        D
+
+Explanation:
+
+A → B (Single Inheritance)
+
+A → C (Hierarchical Inheritance)
+
+B + C → D (Multiple Inheritance)
+
+This combination forms Hybrid Inheritance.
+
+4. Why Java Doesn't Support Multiple Inheritance with Classes?
+
+Consider this situation:
+
+class A
+{
+    void display()
+}
+
+class B extends A
+{
+    void display()
+}
+
+class C extends A
+{
+    void display()
+}
+
+class D extends B, C
+{
+}
+
+Now if we call:
+
+D obj = new D();
+obj.display();
+
+Java cannot determine:
+
+Should it call B.display()?
+
+Or C.display()?
+
+This confusion is called the Diamond Problem.
+
+To avoid this, Java does not allow multiple inheritance with classes.
+
+5. Hybrid Inheritance Using Interfaces
+
+Java solves this using interfaces.
+
+Program Example
+// Parent Interface
+interface A
+{
+    void methodA();
+}
+
+// Child Interface 1
+interface B extends A
+{
+    void methodB();
+}
+
+// Child Interface 2
+interface C extends A
+{
+    void methodC();
+}
+
+// Final Child Class
+class D implements B, C
+{
+    public void methodA()
+    {
+        System.out.println("Method A from Interface A");
+    }
+
+    public void methodB()
+    {
+        System.out.println("Method B from Interface B");
+    }
+
+    public void methodC()
+    {
+        System.out.println("Method C from Interface C");
+    }
+}
+
+public class HybridInheritanceExample
+{
+    public static void main(String[] args)
+    {
+        D obj = new D();
+
+        obj.methodA();
+        obj.methodB();
+        obj.methodC();
+    }
+}
+6. Execution Flow
+
+Step-by-step:
+
+A → parent interface
+
+B → extends A
+C → extends A
+
+D → implements B and C
+
+So class D gets methods from:
+
+Interface A
+
+Interface B
+
+Interface C
+
+Thus forming Hybrid Inheritance.
+
+7. Memory Diagram (Conceptual)
+          Interface A
+             |
+        -------------
+        |           |
+   Interface B   Interface C
+        |           |
+        ------D------
+            |
+        Object Created
+
+When object of D is created:
+
+D obj = new D();
+
+Memory will contain methods of:
+
+A
+
+B
+
+C
+
+D
+
+8. Real-Time Example
+Banking System
+Account (Interface)
+   |
+----------------------
+|                    |
+SavingsAccount   LoanAccount
+        |
+     BankSystem
+
+Example Responsibilities:
+
+Account → basic account methods
+
+SavingsAccount → savings operations
+
+LoanAccount → loan operations
+
+BankSystem → implements both
+
+9. Types Combined in Hybrid Inheritance
+
+Hybrid can combine:
+
+Combination	Example
+Single + Hierarchical	A → B, A → C
+Multilevel + Hierarchical	A → B → C and A → D
+Multiple + Hierarchical	Interfaces
+10. Advantages of Hybrid Inheritance
+
+Code Reusability
+
+Flexible architecture
+
+Modular design
+
+Better abstraction using interfaces
+
+11. Disadvantages
+
+Complex design
+
+Hard to maintain if structure grows
+
+Requires interfaces knowledge
+
+12. Interview Definition
+
+Hybrid Inheritance Definition:
+
+Hybrid Inheritance is a type of inheritance that is formed by combining two or more inheritance types such as single, multilevel, hierarchical, and multiple inheritance.
+
+13. Important Interview Point
+
+Java supports Hybrid Inheritance only through Interfaces, not through Classes.

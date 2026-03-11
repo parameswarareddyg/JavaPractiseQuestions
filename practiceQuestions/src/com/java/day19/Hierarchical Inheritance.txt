@@ -1,0 +1,253 @@
+Hierarchical Inheritance in Java
+1. Definition
+
+Hierarchical Inheritance in Java is a type of inheritance where multiple child classes inherit from a single parent class.
+
+In simple words:
+One Parent → Multiple Children
+
+This allows different classes to reuse the same properties and behaviors from a common superclass.
+
+        Parent Class
+            |
+    ---------------------
+    |         |         |
+ Child1     Child2     Child3
+2. Real-World Example
+
+Consider a Vehicle System
+
+Vehicle → Parent class
+
+Car, Bike, Truck → Child classes
+
+All vehicles share some common properties:
+
+startEngine()
+
+stopEngine()
+
+fuelType()
+
+But each vehicle has its own special behavior.
+
+3. Java Example
+// Parent Class
+class Vehicle
+{
+    void startEngine()
+    {
+        System.out.println("Engine Started");
+    }
+}
+
+// Child Class 1
+class Car extends Vehicle
+{
+    void drive()
+    {
+        System.out.println("Car is Driving");
+    }
+}
+
+// Child Class 2
+class Bike extends Vehicle
+{
+    void ride()
+    {
+        System.out.println("Bike is Riding");
+    }
+}
+
+// Child Class 3
+class Truck extends Vehicle
+{
+    void loadGoods()
+    {
+        System.out.println("Truck is Loading Goods");
+    }
+}
+
+// Main Class
+public class HierarchicalInheritanceDemo
+{
+    public static void main(String[] args)
+    {
+        Car c = new Car();
+        c.startEngine();
+        c.drive();
+
+        Bike b = new Bike();
+        b.startEngine();
+        b.ride();
+
+        Truck t = new Truck();
+        t.startEngine();
+        t.loadGoods();
+    }
+}
+4. Output
+Engine Started
+Car is Driving
+Engine Started
+Bike is Riding
+Engine Started
+Truck is Loading Goods
+5. Memory Structure (Conceptual)
+
+When objects are created:
+
+Car Object
+-------------
+Vehicle.startEngine()
+Car.drive()
+
+Bike Object
+-------------
+Vehicle.startEngine()
+Bike.ride()
+
+Truck Object
+-------------
+Vehicle.startEngine()
+Truck.loadGoods()
+
+Each child inherits the parent methods but has its own methods.
+
+6. Step-by-Step Execution
+Step 1
+
+JVM loads Vehicle class.
+
+Step 2
+
+Child classes Car, Bike, Truck extend Vehicle.
+
+Step 3
+
+When Car c = new Car(); is executed:
+
+JVM creates a Car object
+
+Object contains:
+
+Vehicle methods
+
+Car methods
+
+Step 4
+
+c.startEngine()
+Method is found in Vehicle class.
+
+Step 5
+
+c.drive()
+Method is found in Car class.
+
+7. Advantages
+1. Code Reusability
+
+Common code is written once in the parent class.
+
+2. Maintainability
+
+Changes in the parent class affect all child classes.
+
+3. Organized Code Structure
+
+Logical grouping of classes.
+
+4. Reduces Code Duplication
+8. Disadvantages
+1. Tight Coupling
+
+Child classes depend heavily on the parent.
+
+2. Parent Class Changes Affect All Children
+9. Real-World Software Example
+Employee Management System
+            Employee
+               |
+       -------------------
+       |        |        |
+    Manager   Developer  Tester
+
+All employees share:
+
+getSalary()
+getEmployeeDetails()
+
+But specific roles have:
+
+Manager -> manageTeam()
+Developer -> writeCode()
+Tester -> testSoftware()
+10. Hierarchical vs Other Inheritance Types
+Type	Structure
+Single	A → B
+Multilevel	A → B → C
+Hierarchical	A → B, A → C, A → D
+Multiple	A + B → C (Not supported with classes in Java)
+11. Important Interview Points
+
+✔ Multiple classes inherit from one parent
+✔ Uses extends keyword
+✔ Promotes code reuse
+✔ Parent class methods accessible by all children
+
+12. Advanced Example (Method Overriding)
+class Animal
+{
+    void sound()
+    {
+        System.out.println("Animal makes sound");
+    }
+}
+
+class Dog extends Animal
+{
+    void sound()
+    {
+        System.out.println("Dog barks");
+    }
+}
+
+class Cat extends Animal
+{
+    void sound()
+    {
+        System.out.println("Cat meows");
+    }
+}
+
+public class Test
+{
+    public static void main(String[] args)
+    {
+        Dog d = new Dog();
+        d.sound();
+
+        Cat c = new Cat();
+        c.sound();
+    }
+}
+
+Output
+
+Dog barks
+Cat meows
+
+Here method overriding happens in hierarchical inheritance.
+
+13. Diagram Representation
+            Animal
+              |
+        ----------------
+        |              |
+       Dog            Cat
+   sound()        sound()
+
+✅ Short Interview Definition
+
+Hierarchical inheritance is a type of inheritance where multiple subclasses inherit from a single superclass, allowing code reuse and logical class organization.
