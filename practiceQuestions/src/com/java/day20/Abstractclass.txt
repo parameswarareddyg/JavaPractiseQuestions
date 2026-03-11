@@ -1,0 +1,85 @@
+An abstract class in Java is a class that cannot be instantiated (you cannot create objects from it directly) and is mainly used to provide a base structure for other classes.
+
+It is declared using the abstract keyword.
+
+1. Why Use an Abstract Class?
+
+An abstract class is used when:
+
+You want to define a common template for multiple related classes.
+
+You want to provide some common implementation, but also force subclasses to implement specific methods.
+
+You want to achieve abstraction (hide implementation details).
+
+2. Key Features
+
+Cannot be instantiated.
+
+Can contain:
+
+Abstract methods (without body)
+
+Concrete methods (with body)
+
+Constructors
+
+Variables (instance/static)
+
+If a class contains at least one abstract method, the class must be declared abstract.
+
+3. Syntax
+abstract class Animal {
+    
+    // Abstract method (no body)
+    abstract void makeSound();
+
+    // Concrete method
+    void sleep() {
+        System.out.println("Sleeping...");
+    }
+}
+4. Extending an Abstract Class
+
+A subclass must implement all abstract methods unless it is also abstract.
+
+class Dog extends Animal {
+
+    @Override
+    void makeSound() {
+        System.out.println("Bark");
+    }
+}
+5. Using the Abstract Class
+public class Main {
+    public static void main(String[] args) {
+        Animal myDog = new Dog();  // Polymorphism
+        myDog.makeSound();  // Output: Bark
+        myDog.sleep();      // Output: Sleeping...
+    }
+}
+
+Note:
+
+Animal a = new Animal(); // ❌ ERROR (cannot instantiate abstract class)
+6. Abstract Class vs Interface
+Abstract Class	Interface
+Can have abstract and concrete methods	Mostly abstract methods (until Java 8)
+Can have constructors	Cannot have constructors
+Can have instance variables	Only constants (public static final)
+Supports single inheritance	Supports multiple inheritance
+7. When to Use Abstract Class
+
+Use an abstract class when:
+
+Classes share a strong relationship (IS-A).
+
+You want to share common code.
+
+You need constructors or state (instance variables).
+
+You want partial abstraction.
+
+In Simple Words
+
+An abstract class is like a blueprint with some incomplete parts that child classes must complete.
