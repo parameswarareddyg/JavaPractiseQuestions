@@ -1,0 +1,205 @@
+Polymorphism in Java
+
+Polymorphism means “many forms.” In Java, polymorphism allows one object to behave in different ways depending on the context.
+
+It is one of the four main principles of Object-Oriented Programming (OOP):
+
+Encapsulation
+
+Inheritance
+
+Polymorphism
+
+Abstraction
+
+🔹 Types of Polymorphism in Java
+
+Java supports two types:
+
+1️⃣ Compile-Time Polymorphism (Method Overloading)
+
+This happens when multiple methods have the same name but different parameters in the same class.
+
+✔ Decided at compile time
+
+Example:
+class Calculator {
+
+    int add(int a, int b) {
+        return a + b;
+    }
+
+    double add(double a, double b) {
+        return a + b;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Calculator obj = new Calculator();
+        System.out.println(obj.add(5, 3));      // Calls int version
+        System.out.println(obj.add(5.5, 3.2));  // Calls double version
+    }
+}
+
+👉 Same method name add(), but different parameter types.
+
+2️⃣ Runtime Polymorphism (Method Overriding)
+
+This happens when a subclass provides a specific implementation of a method already defined in its parent class.
+
+✔ Decided at runtime
+✔ Achieved using Inheritance
+
+Example:
+class Animal {
+    void sound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Dog extends Animal {
+    void sound() {
+        System.out.println("Dog barks");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal obj = new Dog();  // Parent reference, child object
+        obj.sound();  // Calls Dog's version (runtime decision)
+    }
+}
+
+👉 Output:
+
+Dog barks
+
+Even though the reference type is Animal, the method of Dog is executed.
+This is called Dynamic Method Dispatch.
+
+🔹 Why Polymorphism is Important
+
+✅ Increases flexibility
+✅ Makes code reusable
+✅ Supports dynamic behavior
+✅ Follows real-world object modeling
+
+🔹 Key Difference
+Compile-Time	Runtime
+Method Overloading	Method Overriding
+Same class	Parent & Child class
+Decided at compile time	Decided at runtime
+No inheritance required	Requires inheritance
+
+Your Code
+Animal d = new Dog();
+d.sound();
+
+Dog d1 = new Dog();
+d1.sound();
+Difference Between Both Objects
+Feature	Animal d = new Dog();	Dog d1 = new Dog();
+Reference Type	Animal (Parent)	Dog (Child)
+Object Type	Dog	Dog
+Method Called	Dog's sound()	Dog's sound()
+Access to Methods	Only methods available in Animal	All methods of Dog
+Polymorphism	Yes (Runtime Polymorphism)	No polymorphism
+Explanation
+1️⃣ Animal d = new Dog();
+
+This is called Upcasting.
+
+Reference type → Animal
+
+Object created → Dog
+
+Animal d = new Dog();
+
+Even though the reference is Animal, Java checks the actual object type at runtime, which is Dog.
+
+So this executes:
+
+Dog barks
+
+This is Runtime Polymorphism / Dynamic Method Dispatch.
+
+But you cannot access Dog-specific methods.
+
+Example:
+
+class Dog extends Animal {
+    void sound() {
+        System.out.println("Dog barks");
+    }
+
+    void eat() {
+        System.out.println("Dog eats");
+    }
+}
+
+Animal d = new Dog();
+d.eat(); // ❌ Compile-time error
+
+Because reference type is Animal.
+
+2️⃣ Dog d1 = new Dog();
+
+Here both:
+
+Reference type → Dog
+
+Object type → Dog
+
+Dog d1 = new Dog();
+
+So you can access all Dog methods.
+
+Example:
+
+d1.sound(); // works
+d1.eat();   // works
+
+Output:
+
+Dog barks
+Dog eats
+Memory Concept
+Case 1
+Animal d = new Dog();
+Reference Type : Animal
+Object Type    : Dog
+
+Animal Reference
+       |
+       v
+     Dog Object
+Case 2
+Dog d1 = new Dog();
+Reference Type : Dog
+Object Type    : Dog
+
+Dog Reference
+     |
+     v
+   Dog Object
+Important Interview Point
+
+Both print same output:
+
+Dog barks
+Dog barks
+
+But first line demonstrates polymorphism, second line does not.
+
+Small Correction in Your Comment
+
+You wrote:
+
+//RunTime Polymorphism or Operator Overriding or Method Overriding
+
+Correct one is:
+
+Runtime Polymorphism = Method Overriding
+
+❌ Operator Overriding does not exist in Java

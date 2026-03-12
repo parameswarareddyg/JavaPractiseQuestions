@@ -1,0 +1,358 @@
+1️⃣ What is an Exception in Java?
+
+In Java, an Exception is an unexpected event that occurs during program execution and disrupts the normal flow of the program.
+
+When an exception occurs, Java creates an exception object that contains information about:
+
+The error type
+
+The location where it occurred
+
+The program state
+
+If the exception is not handled properly, the program will terminate abnormally.
+
+📌 Example:
+
+public class Example {
+    public static void main(String[] args) {
+        int a = 10;
+        int b = 0;
+        int result = a / b; // Exception occurs here
+        System.out.println(result);
+    }
+}
+
+Output:
+
+Exception in thread "main" java.lang.ArithmeticException: / by zero
+2️⃣ Why Exception Handling is Needed
+
+Without exception handling:
+
+Program crashes
+
+Remaining code won’t execute
+
+With exception handling:
+
+Program continues execution
+
+Errors can be handled gracefully
+
+Example:
+
+public class Example {
+    public static void main(String[] args) {
+        try {
+            int a = 10;
+            int b = 0;
+            int result = a / b;
+        } catch (ArithmeticException e) {
+            System.out.println("Cannot divide by zero");
+        }
+
+        System.out.println("Program continues...");
+    }
+}
+
+Output
+
+Cannot divide by zero
+Program continues...
+3️⃣ Types of Exceptions in Java
+
+Java exceptions are mainly two types.
+
+Throwable
+   |
+   |---- Exception
+   |        |
+   |        |---- Checked Exception
+   |        |
+   |        |---- Unchecked Exception
+   |
+   |---- Error
+3.1 Checked Exceptions
+
+Checked exceptions are checked at compile time.
+
+The programmer must handle or declare them.
+
+Examples:
+
+Exception	Cause
+IOException	File operation failure
+SQLException	Database error
+FileNotFoundException	File not found
+
+Example:
+
+import java.io.*;
+
+public class Test {
+    public static void main(String[] args) throws IOException {
+        FileReader file = new FileReader("test.txt");
+    }
+}
+
+If not handled → Compilation Error
+
+3.2 Unchecked Exceptions
+
+Unchecked exceptions occur during runtime.
+
+They are not checked by the compiler.
+
+Examples:
+
+Exception	Cause
+ArithmeticException	Divide by zero
+NullPointerException	Using null reference
+ArrayIndexOutOfBoundsException	Invalid index
+
+Example:
+
+int arr[] = {1,2,3};
+System.out.println(arr[5]);
+
+Output
+
+ArrayIndexOutOfBoundsException
+3.3 Errors
+
+Errors are serious problems that applications usually cannot handle.
+
+Examples:
+
+Error	Cause
+StackOverflowError	Infinite recursion
+OutOfMemoryError	JVM memory exhausted
+4️⃣ Exception Handling Keywords
+
+Java provides 5 keywords.
+
+Keyword	Purpose
+try	Code that may throw exception
+catch	Handles exception
+finally	Always executes
+throw	Used to explicitly throw exception
+throws	Declares exception
+5️⃣ try–catch Block
+
+Used to handle exceptions.
+
+Syntax:
+
+try {
+   // risky code
+}
+catch(ExceptionType e) {
+   // handling code
+}
+
+Example:
+
+public class Example {
+    public static void main(String[] args) {
+
+        try {
+            int a = 10 / 0;
+        }
+        catch (ArithmeticException e) {
+            System.out.println("Exception handled");
+        }
+
+        System.out.println("Program continues");
+    }
+}
+6️⃣ Multiple Catch Blocks
+
+A try block can have multiple catch blocks.
+
+Example:
+
+public class Example {
+    public static void main(String[] args) {
+
+        try {
+            int arr[] = new int[5];
+            arr[10] = 50;
+        }
+        catch (ArithmeticException e) {
+            System.out.println("Arithmetic Exception");
+        }
+        catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Array index exception");
+        }
+    }
+}
+7️⃣ finally Block
+
+The finally block always executes whether exception occurs or not.
+
+Used for:
+
+Closing files
+
+Database connections
+
+Resource cleanup
+
+Example:
+
+public class Example {
+
+    public static void main(String[] args) {
+
+        try {
+            int x = 10/2;
+        }
+        catch(Exception e) {
+            System.out.println("Exception");
+        }
+        finally {
+            System.out.println("Finally block always executes");
+        }
+    }
+}
+8️⃣ throw Keyword
+
+Used to explicitly throw an exception.
+
+Example:
+
+public class Example {
+
+    public static void main(String[] args) {
+
+        int age = 16;
+
+        if(age < 18) {
+            throw new ArithmeticException("Not eligible to vote");
+        }
+
+        System.out.println("Eligible");
+    }
+}
+9️⃣ throws Keyword
+
+Used to declare exceptions in method signature.
+
+Example:
+
+import java.io.*;
+
+class Test {
+
+    static void readFile() throws IOException {
+        FileReader file = new FileReader("data.txt");
+    }
+
+    public static void main(String[] args) throws IOException {
+        readFile();
+    }
+}
+🔟 Custom Exceptions (User Defined)
+
+We can create our own exceptions by extending the Exception class.
+
+Example:
+
+class InvalidAgeException extends Exception {
+
+    InvalidAgeException(String message) {
+        super(message);
+    }
+}
+
+public class Test {
+
+    public static void main(String[] args) {
+
+        int age = 16;
+
+        try {
+            if(age < 18) {
+                throw new InvalidAgeException("Age must be above 18");
+            }
+        }
+        catch(InvalidAgeException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+}
+
+Output:
+
+Age must be above 18
+1️⃣1️⃣ Exception Propagation
+
+If an exception occurs in a method and is not handled, it propagates to the calling method.
+
+Example:
+
+class Test {
+
+    void m1() {
+        int x = 10/0;
+    }
+
+    void m2() {
+        m1();
+    }
+
+    public static void main(String[] args) {
+        Test t = new Test();
+        t.m2();
+    }
+}
+
+Flow:
+
+m1() → m2() → main()
+1️⃣2️⃣ Real-Time Example (File Handling)
+import java.io.*;
+
+public class FileExample {
+
+    public static void main(String[] args) {
+
+        try {
+            FileReader fr = new FileReader("test.txt");
+        }
+        catch(FileNotFoundException e) {
+            System.out.println("File not found");
+        }
+        finally {
+            System.out.println("Execution completed");
+        }
+    }
+}
+⭐ Important Interview Questions
+Difference Between Checked and Unchecked Exception
+Feature	Checked	Unchecked
+Checked at compile time	Yes	No
+Must handle	Yes	No
+Example	IOException	NullPointerException
+Throwable Hierarchy
+Throwable
+  |
+  |---- Error
+  |
+  |---- Exception
+         |
+         |---- Checked
+         |
+         |---- RuntimeException
+🎯 Key Points (Interview Ready)
+
+Exception = runtime abnormal condition
+
+Base class = Throwable
+
+Main keywords = try, catch, finally, throw, throws
+
+Two types = Checked & Unchecked
+
+Custom exceptions can be created using extends Exception
