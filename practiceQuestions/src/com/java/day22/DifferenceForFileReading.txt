@@ -1,0 +1,16 @@
+🔥 Key Differences (Important for Interviews)
+Feature	FileInputStream	   FileReader		BufferedReader		Scanner
+DataType	Bytes			Characters		Characters			Tokens
+Speed		Slow			Slow			Fast				Medium
+Use Case	Binary files	Text files		Large text files	Parsing data
+Read Style	Byte-by-byte	Char-by-char	Line-by-line		Token-based
+Encoding	No				Yes				Yes					Yes
+
+🎯 When to Use What?
+Use FileInputStream → when working with binary files (images, PDFs)
+
+Use FileReader → simple text reading
+
+Use BufferedReader → best choice for large files (most recommended in real projects)
+
+Use Scanner → when you need to parse data (numbers, words, tokens)

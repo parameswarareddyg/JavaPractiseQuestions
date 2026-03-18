@@ -1,0 +1,3 @@
+Hi this is java training
+Today we are discussing about File Reading concept using java
+Thank you
