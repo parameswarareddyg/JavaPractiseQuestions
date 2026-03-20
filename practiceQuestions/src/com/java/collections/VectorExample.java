@@ -10,10 +10,27 @@ public class VectorExample {
 		
 		  
 		  Vector v1= new Vector(); 
+		  System.out.println(v1);
+		  System.out.println(v1.capacity());
+		  System.out.println(v1.size());
 		  v1.add(23); 
 		  v1.add(300);
 		  v1.add(65);
-		  
+		  v1.add(65);
+		  v1.add(65);
+		  v1.add(65);
+		  v1.add(65);
+		  v1.add(65);
+		  v1.add(65);
+		  v1.add(65);
+		  System.out.println(v1);
+		  System.out.println(v1.capacity());
+		  System.out.println(v1.size());
+		  v1.add(75);
+		  System.out.println(v1);
+		  System.out.println(v1.capacity());
+		  System.out.println(v1.size());
+		  System.out.println(v1);
 		  Vector v = new Vector();
 		  
 		  v.add(30);

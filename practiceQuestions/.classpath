@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-21"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-21">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="ExcelLib/commons-codec-1.5.jar"/>
+	<classpathentry kind="lib" path="ExcelLib/commons-logging-1.1.jar"/>
+	<classpathentry kind="lib" path="ExcelLib/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="ExcelLib/junit-4.11.jar"/>
+	<classpathentry kind="lib" path="ExcelLib/log4j-1.2.13.jar"/>
+	<classpathentry kind="lib" path="ExcelLib/poi-3.10.1-20140818.jar"/>
+	<classpathentry kind="lib" path="ExcelLib/poi-examples-3.10.1-20140818.jar"/>
+	<classpathentry kind="lib" path="ExcelLib/poi-excelant-3.10.1-20140818.jar"/>
+	<classpathentry kind="lib" path="ExcelLib/poi-ooxml-3.10.1-20140818.jar"/>
+	<classpathentry kind="lib" path="ExcelLib/poi-ooxml-schemas-3.10.1-20140818.jar"/>
+	<classpathentry kind="lib" path="ExcelLib/poi-scratchpad-3.10.1-20140818.jar"/>
+	<classpathentry kind="lib" path="ExcelLib/stax-api-1.0.1.jar"/>
+	<classpathentry kind="lib" path="ExcelLib/xmlbeans-2.6.0.jar"/>
+	<classpathentry kind="lib" path="resources/commons-io-2.21.0.jar"/>
+	<classpathentry kind="lib" path="resources/poi-3.0-rc4-20070503.jar"/>
+	<classpathentry kind="lib" path="resources/poi-5.5.1.jar"/>
+	<classpathentry kind="lib" path="resources/poi-contrib-3.0-rc4-20070503.jar"/>
+	<classpathentry kind="lib" path="resources/poi-ooxml-5.5.1.jar"/>
+	<classpathentry kind="lib" path="resources/poi-scratchpad-3.0-rc4-20070503.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

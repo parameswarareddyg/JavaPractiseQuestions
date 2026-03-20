@@ -14,7 +14,7 @@ public class ArrayListExample {
 
 		//List<Integer> l= Arrays.asList(i);
 		ArrayList li = new ArrayList();
-
+		
 		li.add(20);
 		li.add(30);
 		li.add(20);
