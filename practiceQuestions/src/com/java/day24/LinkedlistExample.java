@@ -1,8 +1,6 @@
 package com.java.day24;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class LinkedlistExample {
 
@@ -16,7 +14,9 @@ public class LinkedlistExample {
 	public static void main(String[] args) {
 		List<Integer> linkedList = new LinkedList<Integer>();
 		System.out.println(linkedList.size());
-		linkedList.add(10);
+		linkedList.add(100);
+		linkedList.addFirst(200);
+		linkedList.addLast(300);
 		linkedList.add(20);
 		linkedList.remove(0);
 		linkedList.add(20);
