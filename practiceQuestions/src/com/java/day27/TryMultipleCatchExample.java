@@ -1,4 +1,4 @@
-package com.java.exceptions;
+package com.java.day27;
 
 
 
@@ -37,6 +37,7 @@ public class TryMultipleCatchExample {
 		catch(Throwable e)
 		{
 			System.out.println(" Throwable "+ e.toString());
+			
 		}
 		System.out.println(1);
 	}

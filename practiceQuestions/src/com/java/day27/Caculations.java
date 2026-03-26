@@ -1,17 +1,16 @@
-package com.java.exceptions;
+package com.java.day27;
 
 public class Caculations {
 
-	public static void main(String[] args) //throws Exception 
-	{
+	public static void main(String[] args) {
 		method2();
 	}
 
-	public static void method2() //throws Exception
+	public static void method2()
 	{
 		method1();
 	}
-	public static void method1()// throws Exception
+	public static void method1()
 	{
 		System.out.println(1);
 		System.out.println(2);
@@ -19,7 +18,7 @@ public class Caculations {
 		System.out.println(4);
 		try {
 		System.out.println(5/0);
-		}catch(Throwable e)
+		}catch(Exception e)
 		{
 			e.printStackTrace();
 		}

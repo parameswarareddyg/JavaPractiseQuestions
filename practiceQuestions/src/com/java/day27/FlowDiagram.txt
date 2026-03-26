@@ -1,0 +1,5 @@
+Throwable
+ ├── Error
+ └── Exception
+      ├── Checked Exceptions
+      └── Unchecked Exceptions (RuntimeException)

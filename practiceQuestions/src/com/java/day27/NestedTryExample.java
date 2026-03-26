@@ -1,4 +1,4 @@
-package com.java.exceptions;
+package com.java.day27;
 
 public class NestedTryExample {
 
