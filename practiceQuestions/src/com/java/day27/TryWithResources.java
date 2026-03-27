@@ -20,6 +20,7 @@ public class TryWithResources {
 		finally {
 			System.out.println("Next Line");
 		}
+		System.out.println("Next Line1");
 	}
 
 }
